@@ -124,7 +124,7 @@ func NewNeuralNetworkFromReader(source io.Reader) (*NeuralNetwork, error) {
 	return &pmml.NeuralNetwork, nil
 }
 
-func (nn *NeuralNetwork) Score(feature map[string]interface{}, outputName string) (float64, error) {
+func (nn *NeuralNetwork) Score(feature map[string]any, outputName string) (float64, error) {
 	tempMap := map[string]float64{}
 	outputMap := map[string]string{}
 	for _, np := range nn.InputLayer.Input {

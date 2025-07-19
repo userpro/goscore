@@ -1,15 +1,16 @@
 package goscore_test
 
 import (
+	"testing"
+
 	"github.com/asafschers/goscore"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"testing"
 )
 
 var _ = Describe("GradientBoostedModel", func() {
 	var (
-		lowScoreFeatures, highScoreFeatures map[string]interface{}
+		lowScoreFeatures, highScoreFeatures map[string]any
 		highScore, lowScore                 float64
 		tolerance                           float64 = 0.000000001
 		gbm                                 goscore.GradientBoostedModel
@@ -18,7 +19,7 @@ var _ = Describe("GradientBoostedModel", func() {
 	)
 
 	BeforeSuite(func() {
-		lowScoreFeatures = map[string]interface{}{
+		lowScoreFeatures = map[string]any{
 			"Sex":      "male",
 			"Parch":    0,
 			"Age":      30,
@@ -29,7 +30,7 @@ var _ = Describe("GradientBoostedModel", func() {
 		}
 		lowScore = 0.3652639329522468
 
-		highScoreFeatures = map[string]interface{}{
+		highScoreFeatures = map[string]any{
 			"Sex":      "female",
 			"Parch":    0,
 			"Age":      38,

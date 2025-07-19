@@ -2,8 +2,9 @@ package goscore_test
 
 import (
 	"encoding/xml"
-	"github.com/asafschers/goscore"
 	"testing"
+
+	"github.com/asafschers/goscore"
 )
 
 const simpleSetPredicate1 = `<SimpleSetPredicate field="f1" booleanOperator="isIn">
@@ -15,20 +16,20 @@ const simpleSetPredicate2 = `<SimpleSetPredicate field="f2" booleanOperator="isI
 
 var simpleSetPredicateTests = []struct {
 	predicate []byte
-	features  map[string]interface{}
+	features  map[string]any
 	expected  bool
 }{
 	{[]byte(simpleSetPredicate1),
-		map[string]interface{}{"f1": "v3"},
+		map[string]any{"f1": "v3"},
 		true},
 	{[]byte(simpleSetPredicate1),
-		map[string]interface{}{"f1": "v4"},
+		map[string]any{"f1": "v4"},
 		false},
 	{[]byte(simpleSetPredicate2),
-		map[string]interface{}{"f2": "No Match"},
+		map[string]any{"f2": "No Match"},
 		true},
 	{[]byte(simpleSetPredicate2),
-		map[string]interface{}{"f2": "Match"},
+		map[string]any{"f2": "Match"},
 		false},
 }
 

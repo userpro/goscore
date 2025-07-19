@@ -2,38 +2,39 @@ package goscore_test
 
 import (
 	"encoding/xml"
-	"github.com/asafschers/goscore"
 	"testing"
+
+	"github.com/asafschers/goscore"
 )
 
 var simplePredicateTests = []struct {
 	predicate []byte
-	features  map[string]interface{}
+	features  map[string]any
 	expected  bool
 }{
 	{[]byte(`<SimplePredicate field="f33" operator="equal" value="18.85"/>`),
-		map[string]interface{}{"f33": 18.850},
+		map[string]any{"f33": 18.850},
 		true},
 	{[]byte(`<SimplePredicate field="f33" operator="lessOrEqual" value="18.85"/>`),
-		map[string]interface{}{"f33": 18.84},
+		map[string]any{"f33": 18.84},
 		true},
 	{[]byte(`<SimplePredicate field="f33" operator="lessOrEqual" value="18.85"/>`),
-		map[string]interface{}{"f33": 18.86},
+		map[string]any{"f33": 18.86},
 		false},
 	{[]byte(`<SimplePredicate field="f33" operator="lessOrEqual" value="18.85"/>`),
-		map[string]interface{}{"f33": "18.84"},
+		map[string]any{"f33": "18.84"},
 		true},
 	{[]byte(`<SimplePredicate field="f33" operator="isMissing" value="18.85"/>`),
-		map[string]interface{}{"f33": 18.86},
+		map[string]any{"f33": 18.86},
 		false},
 	{[]byte(`<SimplePredicate field="f33" operator="isMissing" value="18.85"/>`),
-		map[string]interface{}{},
+		map[string]any{},
 		true},
 	{[]byte(`<SimplePredicate field="f33" operator="isMissing" value="18.85"/>`),
-		map[string]interface{}{"f33": nil},
+		map[string]any{"f33": nil},
 		true},
 	{[]byte(`<SimplePredicate field="f33" operator="isMissing" value="18.85"/>`),
-		map[string]interface{}{"f33": ""},
+		map[string]any{"f33": ""},
 		true},
 }
 

@@ -44,7 +44,7 @@ func TestSoftmaxFunction(t *testing.T) {
 	}
 }
 func TestScore1(t *testing.T) {
-	input := map[string]interface{}{}
+	input := map[string]any{}
 	input["Sepal.Length"] = 5.1
 	input["Sepal.Width"] = 3.5
 	input["Petal.Length"] = 1.4

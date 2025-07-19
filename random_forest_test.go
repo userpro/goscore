@@ -1,24 +1,25 @@
 package goscore_test
 
 import (
+	"testing"
+
 	"github.com/asafschers/goscore"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
-	"testing"
 )
 
 var _ = Describe("RandomForest", func() {
 	var (
-		lowScoreFeatures, highScoreFeatures map[string]interface{}
+		lowScoreFeatures, highScoreFeatures map[string]any
 		lowScore, highScore                 float64
-		errorFeatures                       map[string]interface{}
+		errorFeatures                       map[string]any
 		rf                                  goscore.RandomForest
 		err                                 error
 		first                               bool = true
 	)
 
 	BeforeEach(func() {
-		lowScoreFeatures = map[string]interface{}{
+		lowScoreFeatures = map[string]any{
 			"Sex":      "male",
 			"Parch":    0,
 			"Age":      30,
@@ -29,7 +30,7 @@ var _ = Describe("RandomForest", func() {
 		}
 		lowScore = 2.0 / 15.0
 
-		highScoreFeatures = map[string]interface{}{
+		highScoreFeatures = map[string]any{
 			"Sex":      "female",
 			"Parch":    0,
 			"Age":      38,
@@ -40,7 +41,7 @@ var _ = Describe("RandomForest", func() {
 		}
 		highScore = 14.0 / 15.0
 
-		errorFeatures = map[string]interface{}{
+		errorFeatures = map[string]any{
 			"Sex":      "female",
 			"Parch":    0,
 			"Age":      38,

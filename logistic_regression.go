@@ -94,13 +94,16 @@ func NewLogisticRegression(source []byte) (*LogisticRegression, error) {
 
 // method for score test data
 // input : 	independent variable with map["var name"]value
-//			voting with boolean type
-//				true (default)  -> using normalization
-//				false			-> without normalization
+//
+//	voting with boolean type
+//		true (default)  -> using normalization
+//		false			-> without normalization
+//
 // return : -label with string type
-//			-confident/prob with map type
-//			-errors
-func (lr *LogisticRegression) Score(args ...interface{}) (string, map[string]float64, error) {
+//
+//	-confident/prob with map type
+//	-errors
+func (lr *LogisticRegression) Score(args ...any) (string, map[string]float64, error) {
 
 	features := map[string]float64{}
 	voting := true

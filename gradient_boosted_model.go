@@ -36,7 +36,7 @@ func LoadGradientBoostedModel(fileName string) (gbm GradientBoostedModel, err er
 
 // Score - traverses all trees in GradientBoostedModel with features and returns exp(sum) / (1 + exp(sum))
 // where sum is sum of trees + rescale constant
-func (gbm *GradientBoostedModel) Score(features map[string]interface{}) (float64, error) {
+func (gbm *GradientBoostedModel) Score(features map[string]any) (float64, error) {
 	sum := fetchConst(gbm)
 
 	for _, tree := range gbm.Trees {
@@ -50,7 +50,7 @@ func (gbm *GradientBoostedModel) Score(features map[string]interface{}) (float64
 }
 
 // ScoreConcurrently - same as Score but concurrent
-func (gbm *GradientBoostedModel) ScoreConcurrently(features map[string]interface{}) (float64, error) {
+func (gbm *GradientBoostedModel) ScoreConcurrently(features map[string]any) (float64, error) {
 	scores := gbm.traverseConcurrently(features)
 	sum, err := sumScores(scores, len(gbm.Trees))
 	if err != nil {
@@ -65,12 +65,12 @@ type result struct {
 	Score     float64
 }
 
-func (gbm *GradientBoostedModel) traverseConcurrently(features map[string]interface{}) chan result {
+func (gbm *GradientBoostedModel) traverseConcurrently(features map[string]any) chan result {
 	scores := make(chan result, len(gbm.Trees))
 	var wg sync.WaitGroup
 	wg.Add(len(gbm.Trees))
 	for _, tree := range gbm.Trees {
-		go func(tree Node, features map[string]interface{}) {
+		go func(tree Node, features map[string]any) {
 			treeScore, err := tree.TraverseTree(features)
 			scores <- result{ErrorName: err, Score: treeScore}
 			wg.Done()

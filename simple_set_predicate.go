@@ -12,7 +12,7 @@ type SimpleSetPredicate struct {
 }
 
 // True - Evaluates to true if features input is true for SimpleSetPredicate
-func (p SimpleSetPredicate) True(features map[string]interface{}) bool {
+func (p SimpleSetPredicate) True(features map[string]any) bool {
 	values, _ := shellwords.Parse(p.Values)
 
 	if p.Operator == "isIn" {
