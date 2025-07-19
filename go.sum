@@ -1,5 +1,3 @@
-github.com/asafschers/goscore v0.0.0-20190823112107-6e6e174c153a h1:WHSt1+cI2rksH0pcnFxbg7Z+6WT1vPFooPGjjLW5pyg=
-github.com/asafschers/goscore v0.0.0-20190823112107-6e6e174c153a/go.mod h1:qPFVHYddY1LZDncL3sPkLUJiRCNHFcX1t022RXv0iXY=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/fsnotify/fsnotify v1.4.7/go.mod h1:jwhsz4b93w/PPRr/qN1Yymfu8t87LnFCMoQvtojpjFo=

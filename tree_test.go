@@ -6,7 +6,7 @@ import (
 	"io/ioutil"
 	"testing"
 
-	"github.com/asafschers/goscore"
+	"github.com/userpro/goscore"
 )
 
 var TreeTests = []struct {

@@ -1,9 +1,8 @@
-module goscore
+module github.com/userpro/goscore
 
 go 1.24.5
 
 require (
-	github.com/asafschers/goscore v0.0.0-20190823112107-6e6e174c153a
 	github.com/mattn/go-shellwords v1.0.12
 	github.com/onsi/ginkgo v1.16.5
 	github.com/onsi/gomega v1.37.0

@@ -4,7 +4,7 @@ import (
 	"encoding/xml"
 	"testing"
 
-	"github.com/asafschers/goscore"
+	"github.com/userpro/goscore"
 )
 
 const simpleSetPredicate1 = `<SimpleSetPredicate field="f1" booleanOperator="isIn">

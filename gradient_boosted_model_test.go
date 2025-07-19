@@ -3,9 +3,9 @@ package goscore_test
 import (
 	"testing"
 
-	"github.com/asafschers/goscore"
 	. "github.com/onsi/ginkgo"
 	. "github.com/onsi/gomega"
+	"github.com/userpro/goscore"
 )
 
 var _ = Describe("GradientBoostedModel", func() {

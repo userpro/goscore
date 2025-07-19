@@ -1,7 +1,7 @@
 [![Build Status](https://travis-ci.org/asafschers/goscore.svg?branch=master)](https://travis-ci.org/asafschers/goscore)
-[![Go Report Card](https://goreportcard.com/badge/github.com/asafschers/goscore)](https://goreportcard.com/report/github.com/asafschers/goscore)
+[![Go Report Card](https://goreportcard.com/badge/github.com/userpro/goscore)](https://goreportcard.com/report/github.com/userpro/goscore)
 [![Coverage Status](https://coveralls.io/repos/github/asafschers/goscore/badge.svg?branch=master)](https://coveralls.io/github/asafschers/goscore?branch=master)
-[![GoDoc](https://godoc.org/github.com/asafschers/goscore?status.svg)](https://godoc.org/github.com/asafschers/goscore)
+[![GoDoc](https://godoc.org/github.com/userpro/goscore?status.svg)](https://godoc.org/github.com/userpro/goscore)
 
 # Goscore
 
@@ -18,7 +18,7 @@ Contact me here or at aschers@gmail.com.
 ## Installation
 
 ```
-go get github.com/asafschers/goscore
+go get github.com/userpro/goscore
 ```
 
 ## Usage
@@ -64,7 +64,7 @@ score, _ := model.ScoreConcurrently(features, "1") // parallelize tree traversin
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/asafschers/goscore. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
+Bug reports and pull requests are welcome on GitHub at https://github.com/userpro/goscore. This project is intended to be a safe, welcoming space for collaboration, and contributors are expected to adhere to the [Contributor Covenant](contributor-covenant.org) code of conduct.
 
 ## License
 
