@@ -2,7 +2,6 @@ package goscore
 
 import (
 	"encoding/xml"
-	"fmt"
 	"os"
 	"strconv"
 	"sync"
@@ -47,7 +46,6 @@ func (rf RandomForest) ScoreConcurrently(features map[string]any, label string) 
 // labels to how many trees returned those label
 func (rf RandomForest) LabelScores(features map[string]any) (map[string]float64, error) {
 	scores := map[string]float64{}
-	fmt.Println("tree lenght: ", len(rf.Trees))
 	for _, tree := range rf.Trees {
 		score, err := tree.TraverseTree(features)
 		if err != nil {
@@ -99,7 +97,6 @@ func scoreByLabel(labelScores map[string]float64, label string) float64 {
 	for _, value := range labelScores {
 		allCount += value
 	}
-	fmt.Printf("labelScores: %+v\n", labelScores)
 	result := labelScores[label] / allCount
 	return result
 }
