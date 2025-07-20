@@ -2,8 +2,8 @@ package goscore
 
 import (
 	"encoding/xml"
-	"io/ioutil"
 	"math"
+	"os"
 	"sync"
 )
 
@@ -22,7 +22,7 @@ type target struct {
 
 // LoadGradientBoostedModel - Load Gradient Boosted Model PMML file to GradientBoostedModel struct
 func LoadGradientBoostedModel(fileName string) (gbm GradientBoostedModel, err error) {
-	GradientBoostedModelXml, err := ioutil.ReadFile(fileName)
+	GradientBoostedModelXml, err := os.ReadFile(fileName)
 	if err != nil {
 		return gbm, err
 	}
@@ -82,7 +82,7 @@ func (gbm *GradientBoostedModel) traverseConcurrently(features map[string]any) c
 
 func sumScores(messages chan result, treeCount int) (float64, error) {
 	sum := 0.0
-	for i := 0; i < treeCount; i++ {
+	for range treeCount {
 		res := <-messages
 		if res.ErrorName != nil {
 			return -1, res.ErrorName
@@ -93,9 +93,10 @@ func sumScores(messages chan result, treeCount int) (float64, error) {
 }
 
 func fetchConst(gbm *GradientBoostedModel) (sum float64) {
-	if gbm.Version == "4.2" {
+	switch gbm.Version {
+	case "4.2":
 		sum = gbm.Constant
-	} else if gbm.Version == "4.3" {
+	case "4.3", "4.4":
 		sum = gbm.Target.RescaleConstant
 	}
 	return sum
